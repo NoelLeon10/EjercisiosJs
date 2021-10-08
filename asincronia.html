@@ -22,27 +22,75 @@
                 
             }
 
-            cuadradoPromise(0)
-                .then((obj) => {
-                    console.log("Inicia")
-                    console.log(`Valores ${obj.value}::${obj.result}`)
-                    return cuadradoPromise(1)
-                })
-                .then((obj) => {
-                    console.log("Inicia")
-                    console.log(`Valores ${obj.value}::${obj.result}`)
-                    return cuadradoPromise(2)
-                })
-                .then((obj) => {
-                    console.log("Inicia")
-                    console.log(`Valores ${obj.value}::${obj.result}`)
-                    return cuadradoPromise(3)
-                })
-                .then((obj) => {
-                    console.log("Inicia")
-                    console.log(`Valores ${obj.value}::${obj.result}`)
-                })
-                .catch(err => console.error(err));
+            async function funcionAsicronaDeclarada(){
+                try{
+                    console.log("Inicio de funcio")
+                    
+                    let obj = await cuadradoPromise(0);
+
+                    console.log(`valores ${obj.value}, ${obj.result}`)
+                    
+                    obj = await cuadradoPromise(1)
+
+                    console.log(`valores ${obj.value}, ${obj.result}`)
+
+                    obj = await cuadradoPromise(3)
+
+                    console.log(`valores ${obj.value}, ${obj.result}`)
+
+                }catch(e){
+                   console.error(e)     
+                }
+            }
+
+            const funcionAsicronaExpresada = async() =>{
+
+                try{
+                    console.log("Inicio de funcio")
+                    
+                    let obj = await cuadradoPromise(3);
+
+                    console.log(`valores ${obj.value}, ${obj.result}`)
+                    
+                    obj = await cuadradoPromise(4)
+
+                    console.log(`valores ${obj.value}, ${obj.result}`)
+
+                    obj = await cuadradoPromise(8)
+
+                    console.log(`valores ${obj.value}, ${obj.result}`)
+
+                }catch(e){
+                   console.error(e)     
+                }
+
+            }
+
+            // cuadradoPromise(0)
+            //     .then((obj) => {
+            //         console.log("Inicia")
+            //         console.log(`Valores ${obj.value}::${obj.result}`)
+            //         return cuadradoPromise(1)
+            //     })
+            //     .then((obj) => {
+            //         console.log("Inicia")
+            //         console.log(`Valores ${obj.value}::${obj.result}`)
+            //         return cuadradoPromise(2)
+            //     })
+            //     .then((obj) => {
+            //         console.log("Inicia")
+            //         console.log(`Valores ${obj.value}::${obj.result}`)
+            //         return cuadradoPromise(3)
+            //     })
+            //     .then((obj) => {
+            //         console.log("Inicia")
+            //         console.log(`Valores ${obj.value}::${obj.result}`)
+            //     })
+            //     .catch(err => console.error(err));
+
+            //funcionAsicronaDeclarada()
+            funcionAsicronaExpresada()
+
 
         </script>
     </body>
